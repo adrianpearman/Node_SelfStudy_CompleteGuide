@@ -1,4 +1,4 @@
-const products = []
+const Product = require('../models/product')
 
 exports.getAddProduct = (req, res, next) => {
     // res.sendFile( addProductFileLocation )
@@ -10,26 +10,24 @@ exports.getAddProduct = (req, res, next) => {
 }
 
 exports.postAddProduct = (req, res, next) => {
-    products.push({ title: req.body.title })
+    const product = new Product(req.body.title)
+    product.save()
     res.redirect('/')
 }
 
 exports.getProducts = (req, res, next) => {
     // rendering a static html page
     // res.sendFile( shopFileLocation )
-
-    // syntax for sending information to a template file
-    res.render('shop', {
-        prods: products,
-        path: '/',
-        pageTitle: 'Shop',
-        hasProducts: products.length > 0,
-        activeShop: true
+    Product.fetchAll(products => {
+        res.render('shop', {
+            prods: products,
+            path: '/',
+            pageTitle: 'Shop',
+            hasProducts: products.length > 0,
+            activeShop: true
+        })
+        console.log(products)
     })
-    console.log(products)
-}
 
-exports.error404 = (req, res, next) => {
-    // res.status(404).sendFile(error404PageLocation)
-    res.status(404).render('error404', { pageTitle: 'ERROR 404', path: 'ERROR: 404' })
+
 }
