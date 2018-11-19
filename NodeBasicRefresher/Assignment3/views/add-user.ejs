@@ -1,0 +1,11 @@
+<%- include('partials/header.ejs') %>
+    <body>
+    <%- include('partials/navigation.ejs') %>
+        <h1>Add New User</h1>
+        <form action="/add-new-user" method="POST">
+            <label for="user">Username</label>
+            <input type="text" name="user" id="user" >
+            <button>Add User</button>
+        </form>
+    </body>
+</html>

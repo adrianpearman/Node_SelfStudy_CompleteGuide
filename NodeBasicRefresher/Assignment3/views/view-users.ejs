@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <%- include('partials/navigation.ejs') %>
+    <% if(allUsers.length > 0){%>
+        <h1>List of Users</h1>
+        <ul>
+            <% for(let user of allUsers) { %>
+                <li><%= user.name %></li>
+            <% } %>
+        </ul>
+    <% } else {%>
+        <h1>No Users Currently</h1>
+    <% } %>
+    <script src="/js/script.js"></script>
+</body>
+</html>
