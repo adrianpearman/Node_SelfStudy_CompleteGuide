@@ -1,19 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
-const expressHbs = require('express-handlebars')
 const app = express()
-
-// to set pug as the templating language
-// app.set('view engine', 'pug')
-
-// to set handlebars as the templating language
-// app.engine('hbs', expressHbs({
-//     layoutDir: 'views/layout', 
-//     defaultLayout: 'main-layout',
-//     extname: 'hbs'
-// }))
-// app.set('view engine', 'hbs')
 
 // to set ejs as the templating language
 app.set('view engine', 'ejs')
