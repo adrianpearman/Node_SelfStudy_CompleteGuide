@@ -55,8 +55,8 @@ Order.belongsToMany(Product, { through: OrderItem })
 
 sequelize
 // - used to clear the database in development
-    .sync({ force: true }) 
-    // .sync()
+    // .sync({ force: true }) 
+    .sync()
     .then(result => {
         return User.findById(1)
     })
